@@ -1,0 +1,23 @@
+FROM node:18.16.0
+
+WORKDIR /home/node/app
+
+COPY ./start_script.sh .
+
+RUN chmod 777 start_script.sh
+
+
+# USER node
+
+
+# RUN npm run build
+
+
+
+# Expose port 3001 for the application to listen on
+EXPOSE 3001
+
+# ENTRYPOINT ["sh", "-c", "tail -500f /dev/null"]
+# CMD ["node", "dist/main.js"]
+# CMD ["npm", "start"]
+ENTRYPOINT ["sh", "/home/node/app/start_script.sh"]

@@ -1,0 +1,37 @@
+version: "3"
+
+services:
+
+  nest:
+    build: backend
+    env_file:
+      - .env
+    networks:
+     - transcendence_network
+    container_name: nest_container
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./backend:/home/node/app
+    ports:
+      - "3001:3001"
+    restart: always
+
+  react:
+    build: frontend
+    networks:
+     - transcendence_network
+    container_name: react_container
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./frontend:/home/node/app
+    ports:
+      - "3000:3000"
+    restart: always
+
+networks:
+  transcendence_network:
+    driver: bridge

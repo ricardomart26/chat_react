@@ -1,0 +1,9 @@
+Endpoint : database-1.cahjixxyrfjt.eu-west-1.rds.amazonaws.com
+Port: 5432
+https://dbdiagram.io/d
+
+Na tabela channels deixa de existir o messages que depois esta descrito o channel_id na tabela messages
+
+transcendence_user/  xK*LVb*&AKJ#p98mp7
+psql -h database-1.cahjixxyrfjt.eu-west-1.rds.amazonaws.com -U transcendence_user -d transcendence -W
+xK*LVb*&AKJ#p98mp7

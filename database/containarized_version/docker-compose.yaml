@@ -1,0 +1,32 @@
+version: "3"
+
+services:
+
+  database:
+    build: ./database_docker
+    networks:
+     - transcendence_network
+    container_name: database_transcendence
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=transcendence_user
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    ports:
+      - "5432:5432"
+    restart: always
+
+  adminer:
+    image: adminer
+    depends_on:
+      - database 
+    networks:
+     - transcendence_network
+    container_name: adminer
+    environment:
+      - ADMINER_DEFAULT_SERVER=database
+    ports:
+      - "8080:8080"
+
+networks:
+  transcendence_network:
+    driver: bridge
